@@ -9,7 +9,7 @@ This repository hosts the JSI public website.
 
 ## Automatic deployment on `main`
 
-GitHub Actions deploys on every push to `main` using `.github/workflows/jekyll-gh-pages.yml`.
+GitHub Actions deploys on every push to `main` using `.github/workflows/deploy.yml`.
 
 Required repository secrets:
 
