@@ -145,10 +145,6 @@ body {
 }
 
 @layer utilities {
-  .bg-white\/8 {
-    background-color: rgb(255 255 255 / 0.08);
-  }
-
   .min-h-13 {
     min-height: 3.25rem;
   }

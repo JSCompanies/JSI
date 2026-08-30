@@ -331,7 +331,7 @@ export default function Home() {
                   >
                     <span
                       aria-hidden="true"
-                      className="flex h-7 w-7 shrink-0 items-center justify-center rounded-sm bg-accent/12 font-heading text-xs font-bold text-accent transition group-hover:bg-accent group-hover:text-white"
+                      className="flex h-7 w-7 shrink-0 items-center justify-center rounded-sm bg-accent/10 font-heading text-xs font-bold text-accent transition group-hover:bg-accent group-hover:text-white"
                     >
                       {(i + 1).toString().padStart(2, '0')}
                     </span>
@@ -385,7 +385,7 @@ export default function Home() {
                   'Build civic agency',
                   'Restore dignity',
                 ].map((goal) => (
-                  <div key={goal} className="flex items-center gap-2.5 rounded-sm border border-white/10 bg-white/8 px-4 py-3">
+                  <div key={goal} className="flex items-center gap-2.5 rounded-sm border border-white/10 bg-white/5 px-4 py-3">
                     <span aria-hidden="true" className="h-2 w-2 shrink-0 rounded-full bg-accent" />
                     <span className="text-sm font-semibold text-white/85">{goal}</span>
                   </div>
@@ -523,10 +523,10 @@ export default function Home() {
                 text: 'Kings Mountain, North Carolina, with a justice-centered regional focus.',
                 accent: 'border-t-primary',
               },
-            ].map(({ mark, title, text }) => (
+            ].map(({ mark, title, text, accent }) => (
               <article
                 key={title}
-                className="group border border-border bg-secondary p-7 transition hover:-translate-y-1 hover:border-accent/40 hover:bg-white hover:shadow-[0_20px_60px_rgba(39,50,43,0.10)]"
+                className={`group border-t-2 border border-border bg-secondary p-7 transition hover:-translate-y-1 hover:bg-white hover:shadow-[0_20px_60px_rgba(39,50,43,0.10)] ${accent}`}
               >
                 <span className="mb-6 inline-grid h-11 min-w-11 place-items-center border border-accent/35 bg-white px-3 font-heading text-xl font-semibold text-accent shadow-sm transition group-hover:bg-accent group-hover:text-white">
                   {mark}
