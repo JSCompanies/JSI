@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "vinext dev",
     "build": "vinext build",
+    "deploy": "vinext build && wrangler deploy --config dist/server/wrangler.json",
     "start": "wrangler dev --config dist/server/wrangler.json",
     "lint": "oxlint",
     "format": "oxfmt"
@@ -50,6 +51,19 @@
     "typescript": "5.9.3",
     "vite": "8.0.13",
     "wrangler": "4.92.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "last 2 versions",
+      "not dead",
+      "Firefox ESR"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "type": "module"
 }
