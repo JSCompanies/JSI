@@ -1,35 +1,14 @@
-# Just Systems Initiative (JSI) site
+# justicesystemsinitiative.org
 
-This repository hosts the JSI public website.
+Public website for Justice Systems Initiative (JSI), a North Carolina nonprofit in formation.
 
-## Public access
+- Built with Astro, deployed to GitHub Pages by `.github/workflows/deploy.yml`.
+- Custom domain: `justicesystemsinitiative.org` (see `public/CNAME`).
+- `/boardportal` is a private short link to the board governance workspace. It is excluded from the sitemap and robots.
 
-- Production is hosted on **Cloudflare Workers** over HTTPS.
-- Once deployed, the site is publicly reachable from any modern web browser at the worker URL (for example, `https://<worker-name>.<account-subdomain>.workers.dev`) and any connected custom domain.
-
-## Automatic deployment on `main`
-
-GitHub Actions deploys on every push to `main` using `.github/workflows/deploy.yml`.
-
-Required repository secrets:
-
-- `CLOUDFLARE_API_TOKEN`
-- `CLOUDFLARE_ACCOUNT_ID`
-
-Workflow behavior:
-
-1. Install dependencies
-2. Build production assets with `npm run build`
-3. Deploy with Wrangler using `dist/server/wrangler.json`
-
-## Local production build/run
+## Local
 
 ```bash
 npm ci
-npm run build
-npm run start
+npm run dev
 ```
-
-## Browser compatibility
-
-Browser support targets are defined in `package.json` via `browserslist` and are set for broad modern browser compatibility (Chrome, Firefox, Safari, Edge-class modern engines).
