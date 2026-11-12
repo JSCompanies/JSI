@@ -2,7 +2,7 @@ name: Deploy site to GitHub Pages
 
 on:
   push:
-    branches: [main, pages-site]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -22,11 +22,17 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
       - run: npm ci
+      - name: Configure GitHub Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
       - run: npm run build
+        env:
+          SITE_BASE_PATH: ${{ steps.pages.outputs.base_path }}
 
       - uses: actions/upload-pages-artifact@v3
         with:

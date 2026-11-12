@@ -1,4 +1,5 @@
 ---
+const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
 const title = "Justice Systems Initiative";
 const tagline = "Justice. Stewardship. Integrity.";
 const description = "Justice Systems Initiative is a North Carolina nonprofit in formation building practical, accountable pathways for people and families navigating incarceration, reentry, and the systems around them.";
@@ -30,9 +31,9 @@ const materials = [
     <title>{title} | {tagline}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href="https://justicesystemsinitiative.org/" />
-    <link rel="icon" href="/favicon.ico" sizes="48x48" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="icon" href={base + "favicon.ico"} sizes="48x48" />
+    <link rel="icon" type="image/svg+xml" href={base + "favicon.svg"} />
+    <link rel="sitemap" href={base + "sitemap-index.xml"} />
     <meta name="theme-color" content="#101823" />
     <meta property="og:site_name" content={title} />
     <meta property="og:type" content="website" />
@@ -41,7 +42,7 @@ const materials = [
     <meta property="og:description" content={description} />
     <meta property="og:image" content="https://justicesystemsinitiative.org/images/jsi-logo-wide.png" />
     <meta name="twitter:card" content="summary" />
-    <link rel="stylesheet" href="/site.css" />
+    <link rel="stylesheet" href={base + "site.css"} />
     <style>
       :root {
         --paper: #f7f3eb;
@@ -248,9 +249,8 @@ const materials = [
       .material-card,
       .plain-card {
         border: 1px solid var(--line-light);
-        background: rgba(255, 255, 255, 0.64);
-        padding: 20px;
-        box-shadow: 0 18px 50px rgba(16, 24, 35, 0.06);
+        background: var(--white);
+        padding: 24px;
       }
 
       .work-card h3 {
@@ -261,18 +261,6 @@ const materials = [
       .work-card p,
       .plain-card p {
         color: var(--muted-ink);
-      }
-
-      .mark {
-        display: inline-block;
-        margin-bottom: 18px;
-        border-bottom: 2px solid var(--gold);
-        color: var(--gold-deep);
-        font-family: Georgia, "Times New Roman", serif;
-        font-size: 24px;
-        font-weight: 700;
-        line-height: 1;
-        padding-bottom: 6px;
       }
 
       .inside-grid {
@@ -354,12 +342,12 @@ const materials = [
         .jsi-hero-inner,
         .section-head,
         .inside-grid,
-        .work-grid,
         .connect-grid {
           grid-template-columns: 1fr;
         }
 
         .work-grid {
+          grid-template-columns: repeat(2, 1fr);
           gap: 14px;
         }
 
@@ -374,6 +362,7 @@ const materials = [
           max-width: 9ch;
         }
 
+        .work-grid,
         .commitment-row,
         .materials {
           grid-template-columns: 1fr;
@@ -388,13 +377,14 @@ const materials = [
 
   <body>
     <header class="topbar">
-      <a class="logo" href="/">
-        <img src="/images/jsi-logo-wide.png" alt={`${title}. ${tagline}`} class="logo-img" />
+      <a class="logo" href={base}>
+        <img src={base + "images/jsi-logo-wide.png"} alt={`${title}. ${tagline}`} class="logo-img" />
       </a>
       <nav class="nav" aria-label="Primary navigation">
         <a href="#programs">Programs</a>
         <a href="#inside-out">Inside/Out</a>
         <a href="#status">Status</a>
+        <a href="#startup">Support</a>
         <a class="nav-cta" href="#connect">Contact</a>
       </nav>
     </header>
@@ -413,13 +403,13 @@ const materials = [
             </p>
             <div class="cta-row">
               <a class="jsi-btn primary" href="#programs">See our programs</a>
-              <a class="jsi-btn secondary" href={"mailto:" + email + "?subject=Justice%20Systems%20Initiative%20Inquiry"}>Connect with JSI</a>
+              <a class="jsi-btn secondary" href={"mailto:" + email + "?subject=Justice%20Systems%20Initiative%20Inquiry"}>Get in touch</a>
             </div>
           </div>
 
           <div>
             <div class="logo-panel">
-              <img src="/images/jsi-logo-stacked.png" alt="Justice Systems Initiative. Justice. Stewardship. Integrity." />
+              <img src={base + "images/jsi-logo-stacked.png"} alt="Justice Systems Initiative. Justice. Stewardship. Integrity." />
             </div>
             <div class="signature">Preparation should begin before the gate opens.</div>
           </div>
@@ -431,15 +421,14 @@ const materials = [
           <div class="section-head">
             <p class="kicker">Programs in Development</p>
             <div>
-              <h2>Four program areas. One commitment.</h2>
-              <p>JSI is building practical, accountable pathways for people and families navigating incarceration, reentry, and systems that are too often difficult to understand or access.</p>
+              <h2>Our programs in development</h2>
+              <p>Justice Systems Initiative is building practical, accountable pathways for people and families navigating incarceration, reentry, and systems that are too often difficult to understand or access.</p>
             </div>
           </div>
 
           <div class="work-grid">
-            {workAreas.map(([heading, text], index) => (
+            {workAreas.map(([heading, text]) => (
               <article class="work-card">
-                <span class="mark">{String(index + 1).padStart(2, "0")}</span>
                 <h3>{heading}</h3>
                 <p>{text}</p>
               </article>
@@ -451,10 +440,10 @@ const materials = [
       <section id="inside-out" class="section alt">
         <div class="wrap inside-grid">
           <div>
-            <p class="kicker">JSI Inside/Out</p>
+            <p class="kicker">Inside/Out</p>
             <h2>Education. Connection. Reentry.</h2>
             <p class="body-copy">
-              JSI Inside/Out is our correctional education and resource-mailing initiative. Through partnerships with correctional communication providers and participating institutions, JSI plans to distribute educational and inspirational materials directly to incarcerated individuals.
+              Inside/Out is our correctional education and resource-mailing initiative. Through partnerships with correctional communication providers and participating institutions, Justice Systems Initiative plans to distribute educational and inspirational materials directly to incarcerated individuals.
             </p>
             <p class="status-card">
               Our goal is not simply to send mail. Our goal is to make each mailing a bridge between where someone is and what may be possible next.
@@ -476,7 +465,7 @@ const materials = [
               Release from incarceration often comes with immediate practical barriers: identification, transportation, housing, employment, health care, technology access, family reunification, and understanding complex public systems.
             </p>
             <p>
-              By getting useful information into people’s hands while they are incarcerated, JSI seeks to strengthen reentry preparation, family stability, personal agency, and access to community resources.
+              By getting useful information into people’s hands while they are incarcerated, Justice Systems Initiative seeks to strengthen reentry preparation, family stability, personal agency, and access to community resources.
             </p>
           </div>
         </div>
@@ -488,7 +477,7 @@ const materials = [
             <p class="kicker">Our Commitment</p>
             <div>
               <h2>Dignity with discipline.</h2>
-              <p>JSI materials are designed to be educational, accurate, respectful, accessible, and constructive.</p>
+              <p>Our materials are designed to be educational, accurate, respectful, accessible, and constructive.</p>
             </div>
           </div>
           <div class="commitment-row">
@@ -505,7 +494,7 @@ const materials = [
             </article>
             <article class="plain-card">
               <h3>Educational, not legal representation</h3>
-              <p>JSI does not provide individualized legal representation through its educational mailing program.</p>
+              <p>Justice Systems Initiative does not provide individualized legal representation through its educational mailing program.</p>
             </article>
           </div>
         </div>
@@ -523,12 +512,23 @@ const materials = [
         </div>
       </section>
 
+      <section id="startup" class="section alt" aria-labelledby="startup-title">
+        <div class="wrap section-head">
+          <p class="kicker">Startup Fundraiser</p>
+          <div>
+            <h2 id="startup-title">Help Justice Systems Initiative get started</h2>
+            <p>We’re preparing a one-time fundraiser to cover our IRS application fee and reimburse documented startup expenses, including the website domain.</p>
+            <p>The GoFundMe link will be posted here when the campaign opens.</p>
+          </div>
+        </div>
+      </section>
+
       <section id="connect" class="section">
         <div class="wrap">
           <div class="section-head">
-            <p class="kicker">Connect With JSI</p>
+            <p class="kicker">Get in touch</p>
             <div>
-              <h2>Honoring dignity. Building pathways. Strengthening communities.</h2>
+              <h2>Work with us</h2>
             </div>
           </div>
           <div class="connect-grid">

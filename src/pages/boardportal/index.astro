@@ -1,7 +1,7 @@
 ---
 // Private short link. Sends visitors to the JSI board governance workspace,
 // which requires its own sign-in. Not indexed.
-const target = "https://jsi-board-governance.jaisellers.chatgpt.site/";
+const target = "https://jsi-board-portal.jaisellers.chatgpt.site/";
 ---
 
 <!doctype html>
@@ -12,7 +12,7 @@ const target = "https://jsi-board-governance.jaisellers.chatgpt.site/";
     <meta name="robots" content="noindex, nofollow" />
     <meta http-equiv="refresh" content={`0; url=${target}`} />
     <title>JSI Board Portal</title>
-    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" href={import.meta.env.BASE_URL.replace(/\/?$/, "/") + "favicon.ico"} sizes="48x48" />
     <style>
       body { margin: 0; min-height: 100svh; display: grid; place-items: center; background: #101823; color: #fffaf0; font-family: Georgia, "Times New Roman", serif; text-align: center; padding: 24px; }
       a { color: #caa24a; }
