@@ -1,0 +1,28 @@
+---
+// Private short link. Sends visitors to the JSI board governance workspace,
+// which requires its own sign-in. Not indexed.
+const target = "https://jsi-board-portal.jaisellers.chatgpt.site/";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta http-equiv="refresh" content={`0; url=${target}`} />
+    <title>JSI Board Portal</title>
+    <link rel="icon" href={import.meta.env.BASE_URL.replace(/\/?$/, "/") + "favicon.ico"} sizes="48x48" />
+    <style>
+      body { margin: 0; min-height: 100svh; display: grid; place-items: center; background: #101823; color: #fffaf0; font-family: Georgia, "Times New Roman", serif; text-align: center; padding: 24px; }
+      a { color: #caa24a; }
+      p { font-size: 18px; line-height: 1.5; max-width: 42ch; }
+    </style>
+  </head>
+  <body>
+    <p>
+      Taking you to the Justice Systems Initiative board portal.<br />
+      If nothing happens, <a href={target}>continue to the portal</a>.
+    </p>
+  </body>
+</html>

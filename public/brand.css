@@ -1,0 +1,144 @@
+/* JaiSellers Companies — brand system (2026)
+   Navy-charcoal + gold. Cormorant Garamond (display) + Jost (text). */
+
+:root {
+  --ink: #0a0a0b;
+  --ink-2: #111113;
+  --ink-3: #1a1a1d;
+  --silver: #d6d6da;
+  --gold-grad: linear-gradient(180deg, #f6e3a8 0%, #d9b45f 45%, #a8812f 100%);
+  --charcoal: #2c2c2c;
+  --gold: #c9a84c;
+  --gold-soft: #e0c787;
+  --gold-deep: #9c7c2c;
+  --ivory: #f6f1e7;
+  --ivory-2: #ede5d6;
+  --text-dark: #1a2230;
+  --muted-dark: #4a5466;
+  --text-light: #f3eee4;
+  --muted-light: #b9b3a7;
+  --line-dark: rgba(201, 168, 76, 0.18);
+  --line-light: rgba(14, 21, 32, 0.12);
+  --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --sans: "Jost", "Helvetica Neue", Arial, sans-serif;
+  --max: 1180px;
+  --gutter: clamp(16px, 4vw, 40px);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--text-light);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+h1, h2, h3, h4, p, ul, ol, figure { margin: 0; }
+
+.wrap { width: min(var(--max), calc(100% - var(--gutter) * 2)); margin: 0 auto; }
+
+/* ---------- Type ---------- */
+.display, h1, h2 { font-family: var(--serif); font-weight: 500; letter-spacing: -0.01em; }
+h1 { font-size: clamp(46px, 7vw, 92px); line-height: 0.98; }
+h2 { font-size: clamp(36px, 4.6vw, 60px); line-height: 1.04; }
+h3 { font-family: var(--serif); font-weight: 600; font-size: 28px; line-height: 1.15; }
+h1 em, h2 em, .gold-text { font-style: inherit; background: var(--gold-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+h1 em, h2 em { font-style: italic; }
+.section-ivory h2 em { background: none; color: var(--gold-deep); }
+
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 14px;
+  font-family: var(--sans); font-size: 12.5px; font-weight: 500;
+  letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold);
+}
+.eyebrow::before { content: ""; width: 36px; height: 1px; background: currentColor; }
+.lede { font-size: clamp(18px, 1.6vw, 21px); line-height: 1.6; color: var(--muted-light); max-width: 60ch; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 52px; padding: 14px 26px;
+  font-family: var(--sans); font-size: 14px; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none;
+  border: 1px solid transparent; border-radius: 0; cursor: pointer;
+  transition: background .25s, color .25s, border-color .25s, transform .25s;
+}
+.btn-gold { background: var(--gold-grad); color: #141006; }
+.btn-gold:hover { filter: brightness(1.08); transform: translateY(-1px); box-shadow: 0 14px 34px rgba(201,168,76,.22); }
+.btn-line { border-color: rgba(201, 168, 76, 0.55); color: var(--text-light); background: transparent; }
+.btn-line:hover { border-color: var(--gold); color: var(--gold-soft); }
+.btn-ink { background: var(--ink); color: var(--ivory); }
+.btn-ink:hover { background: var(--ink-3); }
+.btn .arrow { transition: transform .25s; }
+.btn:hover .arrow { transform: translateX(4px); }
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(10, 10, 11, 0.86);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line-dark);
+}
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 78px; }
+.brand-mark { display: inline-flex; align-items: center; gap: 14px; text-decoration: none; }
+.brand-mark img { height: 48px; width: auto; }
+.brand-word { display: grid; gap: 3px; padding-left: 14px; border-left: 1px solid rgba(201,168,76,.4); line-height: 1; }
+.brand-word b { font-family: var(--sans); font-weight: 500; font-size: 19px; letter-spacing: .14em; background: var(--gold-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.brand-word small { font-family: var(--sans); font-size: 10.5px; letter-spacing: .5em; color: var(--silver); }
+.site-nav { display: flex; align-items: center; gap: 30px; }
+.site-nav a {
+  font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none;
+  color: var(--muted-light); transition: color .2s;
+}
+.site-nav a:hover, .site-nav a[aria-current="page"] { color: var(--gold-soft); }
+.site-nav .btn { min-height: 44px; padding: 10px 18px; font-size: 12.5px; color: var(--ink); }
+.nav-toggle { display: none; background: none; border: 1px solid var(--line-dark); color: var(--text-light); padding: 10px 12px; font-family: var(--sans); font-size: 12px; letter-spacing: .16em; text-transform: uppercase; }
+
+@media (max-width: 960px) {
+  .nav-toggle { display: inline-flex; }
+  .site-nav {
+    display: none; position: absolute; top: 100%; left: 0; right: 0;
+    flex-direction: column; align-items: stretch; gap: 0;
+    background: var(--ink); border-bottom: 1px solid var(--line-dark); padding: 8px var(--gutter) 20px;
+  }
+  .site-nav.open { display: flex; }
+  .site-nav a { padding: 14px 0; border-bottom: 1px solid var(--line-dark); }
+  .site-nav .btn { margin-top: 16px; border-bottom: 0; }
+  .brand-mark img { height: 40px; }
+  .brand-word b { font-size: 16px; }
+  .brand-word small { font-size: 9px; letter-spacing: .42em; }
+}
+
+/* ---------- Sections ---------- */
+.section { padding: clamp(72px, 10vw, 132px) 0; }
+.section-ivory { background: var(--ivory); color: var(--text-dark); }
+.section-ivory .lede, .section-ivory p { color: var(--muted-dark); }
+.section-ivory h2, .section-ivory h3 { color: var(--text-dark); }
+.section-ivory .eyebrow { color: var(--gold-deep); }
+.section-ink2 { background: var(--ink-2); }
+.rule { height: 1px; background: linear-gradient(90deg, transparent, rgba(201,168,76,.6), transparent); border: 0; margin: 0; }
+
+.section-head { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 5vw, 80px); align-items: end; margin-bottom: clamp(40px, 6vw, 72px); }
+.section-head h2 { margin-top: 18px; }
+@media (max-width: 860px) { .section-head { grid-template-columns: 1fr; } }
+
+/* ---------- Footer ---------- */
+.site-footer { background: #050506; border-top: 1px solid var(--line-dark); padding: 64px 0 36px; color: var(--muted-light); font-size: 15px; }
+.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; }
+.footer-grid .brand-mark { margin-bottom: 20px; }
+.footer-grid h4 { font-family: var(--sans); font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; font-weight: 500; }
+.footer-grid ul { list-style: none; padding: 0; display: grid; gap: 8px; }
+.footer-grid a { text-decoration: none; }
+.footer-grid a:hover { color: var(--gold-soft); }
+.footer-base { margin-top: 48px; padding-top: 22px; border-top: 1px solid var(--line-dark); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 13px; }
+@media (max-width: 760px) { .footer-grid { grid-template-columns: 1fr; } }
+
+/* ---------- Reveal ---------- */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .8s ease, transform .8s ease; }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }

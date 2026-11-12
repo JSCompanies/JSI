@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /boardportal/
+
+Sitemap: https://justicesystemsinitiative.org/sitemap-index.xml

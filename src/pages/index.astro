@@ -1,0 +1,551 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
+const title = "Justice Systems Initiative";
+const tagline = "Justice. Stewardship. Integrity.";
+const description = "Justice Systems Initiative is a North Carolina nonprofit in formation building practical, accountable pathways for people and families navigating incarceration, reentry, and the systems around them.";
+const email = "info@justicesystemsinitiative.org";
+const workAreas = [
+  ["Family Justice Navigation", "Accessible information and referrals for families dealing with jail communication, visitation, court processes, and appointed counsel. Not legal representation."],
+  ["Bridges Initiative", "Reentry stabilization and housing-navigation partnerships, including connections to community supports for people rebuilding stability after release."],
+  ["Justice Tech Watch", "Public-records research and accountability regarding surveillance, automated license plate readers, privacy, and government technology."],
+  ["Systems Advocacy", "Evidence-based policy advocacy and community education, including pretrial accountability and improved access to services."],
+];
+const materials = [
+  "Reentry planning guides",
+  "Employment and workforce information",
+  "Housing and identification resources",
+  "Educational opportunities",
+  "Family-support information",
+  "Civic and justice-system literacy",
+  "Life-skills materials",
+  "Faith and inspirational reflections",
+  "Community-resource directories",
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} | {tagline}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href="https://justicesystemsinitiative.org/" />
+    <link rel="icon" href={base + "favicon.ico"} sizes="48x48" />
+    <link rel="icon" type="image/svg+xml" href={base + "favicon.svg"} />
+    <link rel="sitemap" href={base + "sitemap-index.xml"} />
+    <meta name="theme-color" content="#101823" />
+    <meta property="og:site_name" content={title} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://justicesystemsinitiative.org/" />
+    <meta property="og:title" content={`${title} | ${tagline}`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://justicesystemsinitiative.org/images/jsi-logo-wide.png" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="stylesheet" href={base + "site.css"} />
+    <style>
+      :root {
+        --paper: #f7f3eb;
+        --white: #fffdf8;
+        --ink: #101823;
+        --muted-ink: #3d4754;
+        --gold: #caa24a;
+        --gold-deep: #9b7521;
+        --green: #2d5147;
+        --line-light: rgba(16, 24, 35, 0.13);
+      }
+
+      body {
+        background: var(--paper);
+        color: var(--ink);
+      }
+
+      .topbar {
+        background: rgba(247, 243, 235, 0.92);
+        border-bottom-color: var(--line-light);
+      }
+
+      .nav a {
+        color: rgba(16, 24, 35, 0.74);
+      }
+
+      .nav a:hover,
+      .nav-cta {
+        color: var(--ink);
+      }
+
+      .nav-cta {
+        border-color: rgba(155, 117, 33, 0.38);
+        background: rgba(255, 255, 255, 0.54);
+      }
+
+      .jsi-hero {
+        position: relative;
+        min-height: calc(100svh - 92px);
+        display: grid;
+        align-items: center;
+        overflow: hidden;
+        border-bottom: 1px solid var(--line-light);
+        background:
+          linear-gradient(110deg, rgba(247, 243, 235, 0.96), rgba(255, 253, 248, 0.86) 52%, rgba(45, 81, 71, 0.13)),
+          var(--paper);
+      }
+
+      .jsi-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: repeating-linear-gradient(90deg, rgba(16, 24, 35, 0.05) 0 1px, transparent 1px 124px);
+      }
+
+      .jsi-hero-inner {
+        position: relative;
+        width: min(1160px, calc(100% - 40px));
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: clamp(28px, 5vw, 70px);
+        align-items: center;
+        padding: clamp(54px, 8vw, 104px) 0;
+      }
+
+      .kicker {
+        color: var(--gold-deep);
+        font-size: 12px;
+        font-weight: 850;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+      }
+
+      h1,
+      h2,
+      h3 {
+        color: var(--ink);
+        font-family: Georgia, "Times New Roman", serif;
+        letter-spacing: 0;
+      }
+
+      h1 {
+        max-width: 11ch;
+        font-size: clamp(52px, 8vw, 104px);
+        line-height: 0.9;
+      }
+
+      .lead {
+        max-width: 63ch;
+        margin-top: 24px;
+        color: var(--muted-ink);
+        font-size: clamp(17px, 2vw, 21px);
+        line-height: 1.58;
+      }
+
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .jsi-btn {
+        display: inline-flex;
+        min-height: 48px;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 18px;
+        border: 1px solid var(--line-light);
+        border-radius: 2px;
+        font-weight: 750;
+      }
+
+      .jsi-btn.primary {
+        background: var(--ink);
+        color: #fffaf0;
+        border-color: var(--ink);
+      }
+
+      .jsi-btn.secondary {
+        background: rgba(255, 255, 255, 0.62);
+        color: var(--ink);
+      }
+
+      .logo-panel {
+        border: 1px solid rgba(16, 24, 35, 0.12);
+        background: rgba(255, 255, 255, 0.8);
+        padding: clamp(22px, 4vw, 42px);
+        box-shadow: 0 28px 80px rgba(16, 24, 35, 0.11);
+      }
+
+      .logo-panel img {
+        margin: 0 auto;
+        max-height: 270px;
+        object-fit: contain;
+      }
+
+      .signature {
+        margin-top: 18px;
+        border-left: 4px solid var(--gold);
+        background: var(--ink);
+        color: #fffaf0;
+        padding: 20px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(24px, 3vw, 34px);
+        line-height: 1.05;
+      }
+
+      .section {
+        padding: clamp(56px, 7vw, 92px) 0;
+        background: var(--white);
+        border-bottom: 1px solid var(--line-light);
+      }
+
+      .section.alt {
+        background: #ebe5d7;
+      }
+
+      .section.dark {
+        background: var(--ink);
+        color: #fffaf0;
+      }
+
+      .section.dark h2,
+      .section.dark p {
+        color: #fffaf0;
+      }
+
+      .wrap {
+        width: min(1160px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .section-head {
+        display: grid;
+        grid-template-columns: 0.72fr 1.28fr;
+        gap: 28px;
+        align-items: end;
+        margin-bottom: 30px;
+      }
+
+      h2 {
+        font-size: clamp(34px, 5vw, 66px);
+        line-height: 0.98;
+      }
+
+      .section-head p,
+      .body-copy {
+        max-width: 68ch;
+        color: var(--muted-ink);
+        font-size: 17px;
+      }
+
+      .work-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+      }
+
+      .work-card,
+      .material-card,
+      .plain-card {
+        border: 1px solid var(--line-light);
+        background: var(--white);
+        padding: 24px;
+      }
+
+      .work-card h3 {
+        font-size: 23px;
+        line-height: 1.08;
+      }
+
+      .work-card p,
+      .plain-card p {
+        color: var(--muted-ink);
+      }
+
+      .inside-grid {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 34px;
+        align-items: start;
+      }
+
+      .materials {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .material-card {
+        min-height: 68px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--ink);
+        font-weight: 650;
+      }
+
+      .material-card::before {
+        content: "";
+        width: 9px;
+        height: 9px;
+        flex: 0 0 auto;
+        background: var(--gold);
+      }
+
+      .commitment-row {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 10px;
+        margin: 28px 0;
+      }
+
+      .commitment-row span {
+        display: grid;
+        min-height: 86px;
+        place-items: center;
+        border: 1px solid rgba(255, 250, 240, 0.22);
+        color: #fffaf0;
+        font-weight: 800;
+      }
+
+      .status-card {
+        max-width: 760px;
+        border-left: 4px solid var(--gold);
+        background: rgba(255, 255, 255, 0.72);
+        padding: clamp(24px, 4vw, 38px);
+      }
+
+      .connect-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+      }
+
+      .jsi-footer {
+        padding: 26px 0;
+        background: var(--ink);
+        color: rgba(255, 250, 240, 0.72);
+      }
+
+      .jsi-footer-inner {
+        width: min(1160px, calc(100% - 40px));
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        gap: 14px;
+        flex-wrap: wrap;
+        font-size: 14px;
+      }
+
+      @media (max-width: 980px) {
+        .jsi-hero-inner,
+        .section-head,
+        .inside-grid,
+        .connect-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .work-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 14px;
+        }
+
+        .commitment-row,
+        .materials {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 560px) {
+        h1 {
+          max-width: 9ch;
+        }
+
+        .work-grid,
+        .commitment-row,
+        .materials {
+          grid-template-columns: 1fr;
+        }
+
+        .logo-panel img {
+          max-height: 210px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="topbar">
+      <a class="logo" href={base}>
+        <img src={base + "images/jsi-logo-wide.png"} alt={`${title}. ${tagline}`} class="logo-img" />
+      </a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#programs">Programs</a>
+        <a href="#inside-out">Inside/Out</a>
+        <a href="#status">Status</a>
+        <a href="#startup">Support</a>
+        <a class="nav-cta" href="#connect">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="jsi-hero">
+        <div class="jsi-hero-inner">
+          <div>
+            <p class="kicker">Nonprofit organization in formation</p>
+            <h1>Building pathways from incarceration to opportunity.</h1>
+            <p class="lead">
+              Justice Systems Initiative is a developing North Carolina nonprofit working to improve access, accountability, and human dignity at the intersection of justice systems and community life in Cleveland County and beyond. Our goal is to build durable systems rather than one-time interventions.
+            </p>
+            <p class="lead">
+              Our work is grounded in a simple belief: people should not lose access to knowledge, dignity, connection, or opportunity simply because they are incarcerated.
+            </p>
+            <div class="cta-row">
+              <a class="jsi-btn primary" href="#programs">See our programs</a>
+              <a class="jsi-btn secondary" href={"mailto:" + email + "?subject=Justice%20Systems%20Initiative%20Inquiry"}>Get in touch</a>
+            </div>
+          </div>
+
+          <div>
+            <div class="logo-panel">
+              <img src={base + "images/jsi-logo-stacked.png"} alt="Justice Systems Initiative. Justice. Stewardship. Integrity." />
+            </div>
+            <div class="signature">Preparation should begin before the gate opens.</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="programs" class="section">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="kicker">Programs in Development</p>
+            <div>
+              <h2>Our programs in development</h2>
+              <p>Justice Systems Initiative is building practical, accountable pathways for people and families navigating incarceration, reentry, and systems that are too often difficult to understand or access.</p>
+            </div>
+          </div>
+
+          <div class="work-grid">
+            {workAreas.map(([heading, text]) => (
+              <article class="work-card">
+                <h3>{heading}</h3>
+                <p>{text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="inside-out" class="section alt">
+        <div class="wrap inside-grid">
+          <div>
+            <p class="kicker">Inside/Out</p>
+            <h2>Education. Connection. Reentry.</h2>
+            <p class="body-copy">
+              Inside/Out is our correctional education and resource-mailing initiative. Through partnerships with correctional communication providers and participating institutions, Justice Systems Initiative plans to distribute educational and inspirational materials directly to incarcerated individuals.
+            </p>
+            <p class="status-card">
+              Our goal is not simply to send mail. Our goal is to make each mailing a bridge between where someone is and what may be possible next.
+            </p>
+          </div>
+
+          <div class="materials">
+            {materials.map((item) => <div class="material-card">{item}</div>)}
+          </div>
+        </div>
+      </section>
+
+      <section class="section dark">
+        <div class="wrap section-head">
+          <p class="kicker">Why This Matters</p>
+          <div>
+            <h2>The road home starts before the gate opens.</h2>
+            <p>
+              Release from incarceration often comes with immediate practical barriers: identification, transportation, housing, employment, health care, technology access, family reunification, and understanding complex public systems.
+            </p>
+            <p>
+              By getting useful information into people’s hands while they are incarcerated, Justice Systems Initiative seeks to strengthen reentry preparation, family stability, personal agency, and access to community resources.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="kicker">Our Commitment</p>
+            <div>
+              <h2>Dignity with discipline.</h2>
+              <p>Our materials are designed to be educational, accurate, respectful, accessible, and constructive.</p>
+            </div>
+          </div>
+          <div class="commitment-row">
+            <span>Educational</span>
+            <span>Accurate</span>
+            <span>Respectful</span>
+            <span>Accessible</span>
+            <span>Constructive</span>
+          </div>
+          <div class="work-grid">
+            <article class="plain-card">
+              <h3>Facility-aware communication</h3>
+              <p>All correctional mailings are designed to comply with applicable facility rules and communication-provider requirements.</p>
+            </article>
+            <article class="plain-card">
+              <h3>Educational, not legal representation</h3>
+              <p>Justice Systems Initiative does not provide individualized legal representation through its educational mailing program.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="status" class="section alt">
+        <div class="wrap section-head">
+          <p class="kicker">Organization Status</p>
+          <div>
+            <h2>In development for long-term public benefit.</h2>
+            <p>
+              Justice Systems Initiative filed Articles of Incorporation with the North Carolina Secretary of State in November 2026 and is pursuing recognition as a 501(c)(3) public charity. Governance, programs, partnerships, and community work are being structured around long-term public benefit and measurable impact. Formal charitable status is not yet approved.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="startup" class="section alt" aria-labelledby="startup-title">
+        <div class="wrap section-head">
+          <p class="kicker">Startup Fundraiser</p>
+          <div>
+            <h2 id="startup-title">Help Justice Systems Initiative get started</h2>
+            <p>We’re preparing a one-time fundraiser to cover our IRS application fee and reimburse documented startup expenses, including the website domain.</p>
+            <p>The GoFundMe link will be posted here when the campaign opens.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="connect" class="section">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="kicker">Get in touch</p>
+            <div>
+              <h2>Work with us</h2>
+            </div>
+          </div>
+          <div class="connect-grid">
+            <article class="plain-card"><h3>Partnerships</h3><p>Educational, nonprofit, faith, civic, and reentry partners.</p></article>
+            <article class="plain-card"><h3>Board and advisory service</h3><p>Governance, subject-matter advising, and program collaboration.</p></article>
+            <article class="plain-card"><h3>Mail</h3><p>Justice Systems Initiative<br />P.O. Box 2<br />Kings Mountain, NC 28086</p></article>
+            <article class="plain-card"><h3>Email</h3><p><a href={"mailto:" + email}>{email}</a></p></article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="jsi-footer">
+      <div class="jsi-footer-inner">
+        <span>Justice Systems Initiative &middot; {tagline}</span>
+        <span>Nonprofit organization in formation. Formal charitable status is not yet approved.</span>
+      </div>
+    </footer>
+  </body>
+</html>
